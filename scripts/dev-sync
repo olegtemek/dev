@@ -1,0 +1,39 @@
+#!/bin/bash
+
+backupPath="$HOME/.configs_backup"
+nvimPath="$HOME/.config/nvim/"
+weztermPath="$HOME/.wezterm.lua"
+scriptsPath="$HOME/ICloud/scripts/"
+
+cp -R $nvimPath $backupPath/nvim
+
+cp $weztermPath $backupPath/.wezterm.lua
+
+cp -R $scriptsPath $backupPath/scripts
+
+eval cd $backupPath
+ 
+dateNow=$(date '+%Y-%m-%d_%H-%M-%S')
+
+commitName="${dateNow}-backup"
+
+status=$(git status --porcelain)
+
+if [ -n "$status" ]
+then
+
+# GIT SYNC
+git add .
+git commit -m $commitName
+git push
+
+# save backupPath to icloud)
+cp -R $backupPath "$HOME/Library/Mobile Documents/com~apple~CloudDocs/backups/dev/$commitName"
+
+# CLEAN CONFIG FOLDER
+rm -rf $backupPath/nvim
+rm $backupPath/.wezterm.lua
+rm -rf $backupPath/scripts
+
+fi
+
