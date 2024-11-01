@@ -1,0 +1,38 @@
+#!/bin/bash
+
+vaultDir="$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main-vault"
+eval cd $vaultDir
+
+dateNow=$(date '+%Y-%m-%d_%H-%M-%S')
+commitName="${dateNow}-backup"
+
+status=$(git status --porcelain)
+
+if [ -n "$status" ]
+then
+
+# UPDATE FILE
+cd system
+
+rm *-backup.md
+touch "${commitName}.md"
+
+cd ..
+
+# !UPDATE FILE
+
+# GIT SYNC
+git add .
+git commit -m $commitName
+git push
+
+# !GIT SYNC
+
+# COPY TO ICLOUD 
+cd ..
+
+cp -R ./main-vault ../../com~apple~CloudDocs/backups/obsidian/$commitName
+
+# !COPY TO ICLOUD 
+fi
+
