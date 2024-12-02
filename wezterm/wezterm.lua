@@ -7,4 +7,6 @@ config.font_size = 16
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
 
+config.window_background_opacity = 0.95
+
 return config
