@@ -2,7 +2,10 @@ return {
   "zaldih/themery.nvim",
   dependencies = {
     "gantoreno/nvim-gabriel",
-    "catppuccin/nvim"
+    "catppuccin/nvim",
+    "EdenEast/nightfox.nvim",
+    "ramojus/mellifluous.nvim",
+    "aktersnurra/no-clown-fiesta.nvim"
   },
   lazy = false,
   config = function()
@@ -13,7 +16,16 @@ return {
         "catppuccin-frappe",
         "catppuccin-macchiato",
         "catppuccin-mocha",
-        "gabriel"
+        "gabriel",
+        "nightfox",
+        "dayfox",
+        "dawnfox",
+        "duskfox",
+        "nordfox",
+        "terafox",
+        "carbonfox",
+        "mellifluous",
+        "no-clown-fiesta"
       }
     })
 
@@ -22,3 +34,4 @@ return {
     vim.keymap.set('n', "<leader>ct", "<CMD>Themery<CR>", opts)
   end
 }
+
