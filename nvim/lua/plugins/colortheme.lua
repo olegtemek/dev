@@ -5,7 +5,11 @@ return {
     "catppuccin/nvim",
     "EdenEast/nightfox.nvim",
     "ramojus/mellifluous.nvim",
-    "aktersnurra/no-clown-fiesta.nvim"
+    "aktersnurra/no-clown-fiesta.nvim",
+    "nyoom-engineering/oxocarbon.nvim",
+    "nyngwang/nvimgelion",
+    "scottmckendry/cyberdream.nvim",
+    "AlexvZyl/nordic.nvim"
   },
   lazy = false,
   config = function()
@@ -25,7 +29,11 @@ return {
         "terafox",
         "carbonfox",
         "mellifluous",
-        "no-clown-fiesta"
+        "no-clown-fiesta",
+        "oxocarbon",
+        "nvimgelion",
+        "cyberdream",
+        "nordic"
       }
     })
 
